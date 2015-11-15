@@ -14,5 +14,5 @@ u=60*1000;
 v=24*60*u;
 v=Math.floor((v-t%v)/u);
 if(z&&z.innerHTML=="!time"){
-document.getElementById('input').value="(AUTOMATED RESPONSE) UTC Time: "+t+"\n"+v+" minutes until UTC midnight";document.getElementById('sayit-button').click()
+document.getElementById('input').value="(AUTOMATED RESPONSE) UTC Time "+t+", "+v+" minutes until UTC midnight";document.getElementById('sayit-button').click()
 }setTimeout(f,1200)};f();
