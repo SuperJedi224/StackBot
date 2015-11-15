@@ -1,3 +1,4 @@
+(function(){
 function process(m,u){
 if(m.indexOf("@")!=-1&&m.indexOf("@SuperJedi224")==-1)return "";
 if(m.indexOf("!")==-1)return "";
@@ -15,7 +16,7 @@ return "Illegal command!"
 }
 
 function getUser(el){
-while(el.class.indexOf("monologue")<0)el=el.parentNode;
+while(el.className.indexOf("monologue")<0)el=el.parentNode;
 return (el.getElementsByClassName("username")[0]||{}).innerHTML;
 }
 
@@ -40,4 +41,4 @@ var user=getUser(z)||"";
 var text=process(z.innerHTML,user);
 if(text!="")post(text,user);
 }
-setTimeout(f,900)};f();
+setTimeout(f,900)};f();})()
