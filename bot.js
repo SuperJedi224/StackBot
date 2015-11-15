@@ -1,5 +1,5 @@
 (function(){
-function process(m,u){
+function process(m,user){
 if(m.indexOf("@")!=-1&&m.indexOf("@SuperJedi224")==-1)return "";
 if(m.indexOf("!")==-1)return "";
 var k=/!([A-Za-z]+)/g.exec(m);
@@ -9,7 +9,16 @@ t=(new Date()).valueOf();
 u=60*1000;
 v=24*60*u;
 v=Math.floor((v-t%v)/u);
-return "UTC Time "+t+", "+v+" minutes until UTC midnight";
+post("UTC Time "+t+", "+v+" minutes until UTC midnight",user);
+return;
+}
+if(k.indexOf("irreg_")==0){
+var i=k.substring(6);
+var j=("000"+i).slice(-4);
+var url="http://irregularwebcomic.net/comics/irreg"+j+".jpg";
+post("http://irregularwebcomic.net/"+k+".html",user);
+setTimeout(function(){postRaw(url)},500)
+return;
 }
 return "";
 }
@@ -20,9 +29,12 @@ return (el.getElementsByClassName("username")[0]||{}).innerHTML;
 }
 
 function post(t,u){
-document.getElementById('input').value="(AUTOMATED RESPONSE)"+(u?" @"+u+" ":"")+t;document.getElementById('sayit-button').click()
+ postRaw("(AUTOMATED RESPONSE)"+(u?" @"+u+" ":""))
 }
 
+function postRaw(t){
+ document.getElementById('input').value=t;document.getElementById('sayit-button').click()
+}
 
 var f=function(){
 var a,b,c,k,t,u,v,z;
@@ -37,7 +49,6 @@ for(a of z){
 z=k.getElementsByClassName("content")[0]
 if(z){
 var user=getUser(z)||"";
-var text=process(z.innerHTML,user);
-if(text!="")post(text,user);
+process(z.innerHTML,user);
 }
-setTimeout(f,900)};f();})()
+setTimeout(f,500)};f();})()
