@@ -21,7 +21,7 @@ return (el.getElementsByClassName("username")[0]||{}).innerHTML;
 }
 
 function post(t,u){
-document.getElementById('input').value="(AUTOMATED RESPONSE)"+(u?"@"+u:"")+t;document.getElementById('sayit-button').click()
+document.getElementById('input').value="(AUTOMATED RESPONSE)"+(u?" @"+u+" ":"")+t;document.getElementById('sayit-button').click()
 }
 
 
