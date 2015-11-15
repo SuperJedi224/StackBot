@@ -1,3 +1,30 @@
+function process(m,u){
+if(!enabled)return "";
+if(m.indexOf("@")!=-1&&m.indexOf("@SuperJedi224")==-1)return "";
+if(m.indexOf("!")==-1)return "";
+var k=/(?:^| )!([A-Za-z]+)/g.exec(m);
+k=(k||[""])[1];
+if(k=="time"){
+t=(new Date()).valueOf();
+u=60*1000;
+v=24*60*u;
+v=Math.floor((v-t%v)/u);
+return "UTC Time "+t+", "+v+" minutes until UTC midnight";
+}
+if(k=="")return ""
+return "Illegal command!"
+}
+
+function getUser(el){
+while(el.class.indexOf("monologue")<0)el=el.parentNode;
+return (el.getElementsByClassName("username")[0]||{}).innerHTML;
+}
+
+function post(t,u){
+document.getElementById('input').value="(AUTOMATED RESPONSE)"+(u?"@"+u:"")+t;document.getElementById('sayit-button').click()
+}
+
+
 var f=function(){
 var a,b,c,k,t,u,v,z;
 b=0;
@@ -13,6 +40,9 @@ t=(new Date()).valueOf();
 u=60*1000;
 v=24*60*u;
 v=Math.floor((v-t%v)/u);
-if(z&&z.innerHTML=="!time"){
-document.getElementById('input').value="(AUTOMATED RESPONSE) UTC Time "+t+", "+v+" minutes until UTC midnight";document.getElementById('sayit-button').click()
-}setTimeout(f,1200)};f();
+if(z){
+var user=getUser(z)||"";
+var text=process(z.innerHTML,user);
+if(text!="")post(text,user);
+}
+}setTimeout(f,900)};f();
