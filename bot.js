@@ -1,8 +1,8 @@
 (function(){
 function process(m,u){
 if(m.indexOf("@")!=-1&&m.indexOf("@SuperJedi224")==-1)return "";
-if(m.indexOf(/![A-Za-z]/)==-1)return "";
-var k=/^!([A-Za-z]+)$/g.exec(m);
+if(m.indexOf("!")==-1)return "";
+var k=/!([A-Za-z])$/g.exec(m);
 k=(k||[""])[1];
 if(k=="time"){
 t=(new Date()).valueOf();
@@ -11,8 +11,7 @@ v=24*60*u;
 v=Math.floor((v-t%v)/u);
 return "UTC Time "+t+", "+v+" minutes until UTC midnight";
 }
-if(k=="")return ""
-return "Illegal command!"
+return "";
 }
 
 function getUser(el){
