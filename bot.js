@@ -1,5 +1,4 @@
 function process(m,u){
-if(!enabled)return "";
 if(m.indexOf("@")!=-1&&m.indexOf("@SuperJedi224")==-1)return "";
 if(m.indexOf("!")==-1)return "";
 var k=/(?:^| )!([A-Za-z]+)/g.exec(m);
