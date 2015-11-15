@@ -36,10 +36,6 @@ for(a of z){
  if(b==c)k=a;
 }
 z=k.getElementsByClassName("content")[0]
-t=(new Date()).valueOf();
-u=60*1000;
-v=24*60*u;
-v=Math.floor((v-t%v)/u);
 if(z){
 var user=getUser(z)||"";
 var text=process(z.innerHTML,user);
