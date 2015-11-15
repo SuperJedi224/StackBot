@@ -33,7 +33,7 @@ return (el.getElementsByClassName("username")[0]||{}).innerHTML;
 }
 
 function post(t,u){
- postRaw("(AUTOMATED RESPONSE)"+(u?" @"+u+" ":"")+t)
+ postRaw("(AUTOMATED RESPONSE) "+(u?"@"+u+" ":"")+t)
 }
 
 function postRaw(t){
