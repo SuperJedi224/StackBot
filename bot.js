@@ -41,4 +41,4 @@ var user=getUser(z)||"";
 var text=process(z.innerHTML,user);
 if(text!="")post(text,user);
 }
-}setTimeout(f,900)};f();
+setTimeout(f,900)};f();
