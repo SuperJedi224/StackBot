@@ -13,6 +13,7 @@ post("UTC Time "+t+", "+v+" minutes until UTC midnight",user);
 return;
 }
 if(k.indexOf("irreg_")==0){
+console.log(k);
 var i=k.substring(6);
 var j=("000"+i).slice(-4);
 var url="http://irregularwebcomic.net/comics/irreg"+j+".jpg";
