@@ -2,7 +2,7 @@
 function process(m,u){
 if(m.indexOf("@")!=-1&&m.indexOf("@SuperJedi224")==-1)return "";
 if(m.indexOf("!")==-1)return "";
-var k=/!([A-Za-z])$/g.exec(m);
+var k=/!([A-Za-z]+)/g.exec(m);
 k=(k||[""])[1];
 if(k=="time"){
 t=(new Date()).valueOf();
