@@ -2,7 +2,7 @@
 function process(m,user){
 if(m.indexOf("@")!=-1&&m.indexOf("@SuperJedi224")==-1)return "";
 if(m.indexOf("!")==-1)return "";
-var k=/!([A-Za-z]+)/g.exec(m);
+var k=/!([A-Za-z0-9_]+)/g.exec(m);
 k=(k||[""])[1];
 if(k=="time"){
 t=(new Date()).valueOf();
@@ -10,7 +10,6 @@ u=60*1000;
 v=24*60*u;
 v=Math.floor((v-t%v)/u);
 post("UTC Time "+t+", "+v+" minutes until UTC midnight",user);
-return;
 }
 if(k.indexOf("irreg_")==0){
 console.log(k);
