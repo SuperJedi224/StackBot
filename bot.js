@@ -15,7 +15,10 @@ v=Math.floor((v-t%v)/u);
 post("UTC Time "+t+", "+v+" minutes until UTC midnight",user);
 }
 if(k=="pi"){
-post("3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679",user);
+post(Math.PI,user);
+}
+if(k=="e"){
+post(Math.E,user);
 }
 if(k.indexOf("irreg_")==0){
 var i=k.substring(6);
@@ -25,6 +28,12 @@ post("http://irregularwebcomic.net/"+k+".html",user);
 setTimeout(function(){postRaw(url)},900)
 t=1400;
 return;
+}
+if(k.indexOf("sqrt_")==0){
+post(Math.sqrt(k.substring(5)),user);
+}
+if(k.indexOf("cbrt_")==0){
+post(Math.cbrt(k.substring(5)),user);
 }
 if(k.indexOf("hoh_")==0){
 var i=k.substring(4);
@@ -78,4 +87,4 @@ var user=getUser(z)||"";
 process(z.innerHTML,user);
 }
 setTimeout(f,t)};f();
-setTimeout(_=>post("Bot Loaded."),100);})()
+setTimeout(_=>{post("Bot Loaded.");console.log("Bot Loaded.")},100);})()
