@@ -62,7 +62,7 @@ function postRaw(t){
 }
 
 var f=function(){
-t=400;
+t=350;
 var a,b,c,k,t,u,v,z;
 b=0;
 k=null;
@@ -77,4 +77,5 @@ if(z){
 var user=getUser(z)||"";
 process(z.innerHTML,user);
 }
-setTimeout(f,t)};f();setTimeout(_=>post("Bot Loaded."),100);})()
+setTimeout(f,t)};f();
+setTimeout(_=>post("Bot Loaded."),100);})()
