@@ -35,6 +35,12 @@ post(Math.sqrt(k.substring(5)),user);
 if(k.indexOf("cbrt_")==0){
 post(Math.cbrt(k.substring(5)),user);
 }
+if(k.indexOf("ln_")==0){
+post(Math.log(k.substring(3)),user);
+}
+if(k.indexOf("log_")==0){
+post(Math.log10(k.substring(4)),user);
+}
 if(k.indexOf("hoh_")==0){
 var i=k.substring(4);
 var char="Tobi";
@@ -71,7 +77,7 @@ function postRaw(t){
 }
 
 var f=function(){
-t=350;
+t=300;
 var a,b,c,k,t,u,v,z;
 b=0;
 k=null;
