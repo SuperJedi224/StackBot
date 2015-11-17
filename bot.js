@@ -5,8 +5,9 @@ function process(m,user){
 if(user==bot_user)return;
 if(m.indexOf("@")!=-1&&m.indexOf("@"+bot_user)==-1)return "";
 if(m.indexOf("!")==-1)return "";
-var k=/!([A-Za-z0-9_]+(\\.[0-9]+)?)/g.exec(m);
+var k=/!([A-Za-z0-9_.]+)/g.exec(m);
 k=(k||["",""])[1];
+console.log(k);
 if(k=="time"){
 t=(new Date()).valueOf();
 u=60*1000;
@@ -29,20 +30,20 @@ var j=("000"+i).slice(-4);
 var url="http://irregularwebcomic.net/comics/irreg"+j+".jpg";
 post("http://irregularwebcomic.net/"+k+".html",user);
 setTimeout(function(){postRaw(url)},900)
-t=1400;
+t=2000;
 return;
 }
 if(k.indexOf("sqrt_")==0){
-post(Math.sqrt(k.substring(5)),user);
+post(Math.sqrt(Number(k.substring(5))),user);
 }
 if(k.indexOf("cbrt_")==0){
-post(Math.cbrt(k.substring(5)),user);
+post(Math.cbrt(Number(k.substring(5))),user);
 }
 if(k.indexOf("ln_")==0){
-post(Math.log(k.substring(3)),user);
+post(Math.log(Number(k.substring(3))),user);
 }
 if(k.indexOf("log_")==0){
-post(Math.log10(k.substring(4)),user);
+post(Math.log10(Number(k.substring(4))),user);
 }
 if(k.indexOf("hoh_")==0){
 var i=k.substring(4);
@@ -59,7 +60,7 @@ if(i<222)char="Burk";
 var url="http://neorice.com/hoh/"+i+"_"+(char=="Intermission"?"Burk_Noah_Tobi":char)+".png";
 post(char+" http://neorice.com/hoh_"+i,user);
 setTimeout(function(){postRaw(url)},900)
-t=1400;
+t=2000;
 return;
 }
 return;
@@ -76,7 +77,7 @@ function post(t,u){
 
 function postRaw(t){
  document.getElementById('input').value=t;document.getElementById('sayit-button').click()
- t=1200;
+ t=1500;
 }
 
 var f=function(){
