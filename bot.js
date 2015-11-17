@@ -17,7 +17,7 @@ post("UTC Time "+t+", "+v+" minutes until UTC midnight",user);
 }
 if(k=="help"){
 post("Current commands: !cbrt_*x* !e !help !hoh_*n* !irreg_*n* !ln_*x* !log_*x* !phi !pi !pingme !sqrt_*x* !time",user);
-setTimeout(function(){postraw("*n* is an integer literal, *x* is an integer or float literal.")},800);
+setTimeout(function(){postRaw("*n* is an integer literal, *x* is an integer or float literal.")},800);
 t=2000;
 }
 if(k=="pi"){
