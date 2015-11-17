@@ -15,8 +15,14 @@ v=24*60*u;
 v=Math.floor((v-t%v)/u);
 post("UTC Time "+t+", "+v+" minutes until UTC midnight",user);
 }
+if(k=="help"){
+post("Current commands: !cbrt_*x* !e !help !hoh_*n* !irreg_*n* !ln_*x* !log_*x* !phi !pi !pingme !sqrt_*x* !time",user);
+}
 if(k=="pi"){
 post(Math.PI,user);
+}
+if(k=="pingme"){
+post("",user);
 }
 if(k=="phi"){
 post(Math.PHI||(1+Math.sqrt(5))/2,user);
