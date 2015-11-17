@@ -6,7 +6,7 @@ if(user==bot_user)return;
 if(m.indexOf("@")!=-1&&m.indexOf("@"+bot_user)==-1)return "";
 if(m.indexOf("!")==-1)return "";
 var k=/!([A-Za-z0-9_.]+)/g.exec(m);
-k=(k||["",""])[1];
+k=(k!=null?k:["",""])[1];
 console.log(k);
 if(k=="time"){
 t=(new Date()).valueOf();
