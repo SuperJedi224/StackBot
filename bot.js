@@ -5,7 +5,7 @@ function process(m,user){
 if(user==bot_user)return;
 if(m.indexOf("@")!=-1&&m.indexOf("@"+bot_user)==-1)return "";
 if(m.indexOf("!")==-1)return "";
-var k=/!([A-Za-z0-9_]+)/g.exec(m);
+var k=/!([A-Za-z0-9_]+(?:\\.[0-9]+)?)/g.exec(m);
 k=(k||["",""])[1];
 if(k=="time"){
 t=(new Date()).valueOf();
@@ -16,6 +16,9 @@ post("UTC Time "+t+", "+v+" minutes until UTC midnight",user);
 }
 if(k=="pi"){
 post(Math.PI,user);
+}
+if(k=="phi"){
+post(Math.PHI,user);
 }
 if(k=="e"){
 post(Math.E,user);
