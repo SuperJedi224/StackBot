@@ -14,11 +14,12 @@ u=60*1000;
 v=24*60*u;
 v=Math.floor((v-t%v)/u);
 post("UTC Time "+t+", "+v+" minutes until UTC midnight",user);
+return;
 }
 if(k=="help"){
-post("Current commands: !cbrt_*x* !e !help !hoh_*n* !irreg_*n* !ln_*x* !log_*x* !phi !pi !pingme !sqrt_*x* !time",user);
-setTimeout(function(){postRaw("*n* is an integer literal, *x* is an integer or float literal.")},800);
+post("Current commands: !cbrt_*x* !e !help !hoh_*n* !irreg_*n* !ln_*x* !log_*x* !phi !pi !pingme !sqrt_*x* !time\n*n* is an integer literal, *x* is an integer or float literal.",user);
 t=2000;
+return;
 }
 if(k=="pi"){
 post(Math.PI,user);
