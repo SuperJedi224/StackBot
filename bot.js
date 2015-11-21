@@ -18,7 +18,7 @@ return;
 }
 if(k=="help"){
 post("Current commands: !cbrt_*x* !e !help !hoh_*n* !irreg_*n* !ln_*x* !log_*x* !phi !pi !pingme !sqrt_*x* !time\n*n* is an integer literal, *x* is an integer or float literal.",user);
-t=2000;
+t=1700;
 return;
 }
 if(k=="pi"){
@@ -39,7 +39,7 @@ var j=("000"+i).slice(-4);
 var url="http://irregularwebcomic.net/comics/irreg"+j+".jpg";
 post("http://irregularwebcomic.net/"+k+".html",user);
 setTimeout(function(){postRaw(url)},900)
-t=2000;
+t=2400;
 return;
 }
 if(k.indexOf("sqrt_")==0){
@@ -69,7 +69,7 @@ if(i<222)char="Burk";
 var url="http://neorice.com/hoh/"+i+"_"+(char=="Intermission"?"Burk_Noah_Tobi":char)+".png";
 post(char+" http://neorice.com/hoh_"+i,user);
 setTimeout(function(){postRaw(url)},900)
-t=2000;
+t=2400;
 return;
 }
 return;
@@ -86,11 +86,11 @@ function post(t,u){
 
 function postRaw(t){
  document.getElementById('input').value=t;document.getElementById('sayit-button').click()
- t=1500;
+ t=1600;
 }
 
 var f=function(){
-t=300;
+t=200;
 var a,b,c,k,t,u,v,z;
 b=0;
 k=null;
