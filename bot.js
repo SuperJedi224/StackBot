@@ -1,10 +1,16 @@
 (function(){
+function n(k){
+if(k=="pi")return Math.PI;
+if(k=="phi")return Math.PHI||(1+Math.sqrt(5))/2;
+if(k=="e")return Math.E;
+return Number(k);
+}
 var t;
 var bot_user="SJ-9000";
 function process(m,user){
 if(user==bot_user)return;
-if(m.indexOf("@")!=-1&&m.indexOf("@"+bot_user)==-1)return "";
-if(m.indexOf("!")==-1)return "";
+if(m.indexOf("@")!=-1&&m.indexOf("@"+bot_user)==-1)return;
+if(m.indexOf("!")==-1)return;
 var k=/!([A-Za-z0-9_.]+)/g.exec(m);
 k=(k!=null?k:["",""])[1];
 console.log(k);
@@ -17,7 +23,7 @@ post("UTC Time "+t+", "+v+" minutes until UTC midnight",user);
 return;
 }
 if(k=="help"){
-post("Current commands: !cbrt_*x* !e !help !hoh_*n* !irreg_*n* !ln_*x* !log_*x* !phi !pi !pingme !sqrt_*x* !time\n*n* is an integer literal, *x* is an integer or float literal.",user);
+post("Current commands: !cbrt_*x* !e !help !hoh_*n* !irreg_*n* !ln_*x* !log_*x* !phi !pi !pingme !sqrt_*x* !time\n*n* is an integer literal, *x* is an integer or float literal.\*\"e\", \"pi\", or \"phi\" (sans quotes) may be substituted for any float literal",user);
 t=1700;
 return;
 }
@@ -43,16 +49,16 @@ t=2400;
 return;
 }
 if(k.indexOf("sqrt_")==0){
-post(Math.sqrt(Number(k.substring(5))),user);
+post(Math.sqrt(n(k.substring(5))),user);
 }
 if(k.indexOf("cbrt_")==0){
-post(Math.cbrt(Number(k.substring(5))),user);
+post(Math.cbrt(n(k.substring(5))),user);
 }
 if(k.indexOf("ln_")==0){
-post(Math.log(Number(k.substring(3))),user);
+post(Math.log(n(k.substring(3))),user);
 }
 if(k.indexOf("log_")==0){
-post(Math.log10(Number(k.substring(4))),user);
+post(Math.log10(n(k.substring(4))),user);
 }
 if(k.indexOf("hoh_")==0){
 var i=k.substring(4);
