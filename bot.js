@@ -23,7 +23,7 @@ post("UTC Time "+t+", "+v+" minutes until UTC midnight",user);
 return;
 }
 if(k=="help"){
-post("Current commands: !cbrt_*x* !e !help !hoh_*n* !irreg_*n* !ln_*x* !log_*x* !phi !pi !pingme !sqrt_*x* !time\n*n* is an integer literal, *x* is an integer or float literal.\*\"e\", \"pi\", or \"phi\" (sans quotes) may be substituted for any float literal",user);
+post("Current commands: !cbrt_*x* !e !help !hoh_*n* !irreg_*n* !ln_*x* !log_*x* !phi !pi !pingme !sqrt_*x* !time\n*n* is an integer literal, *x* is an integer or float literal.\n\"e\", \"pi\", or \"phi\" (sans quotes) may be substituted for any float literal",user);
 t=1700;
 return;
 }
