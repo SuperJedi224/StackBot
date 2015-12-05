@@ -11,7 +11,7 @@ function process(m,user){
 if(user==bot_user)return;
 if(m.indexOf("@")!=-1&&m.indexOf("@"+bot_user)==-1)return;
 if(m.indexOf("!")==-1)return;
-var k=/!([A-Za-z0-9_.]+)/g.exec(m);
+var k=/!([A-Za-z0-9_.\-]+)/g.exec(m);
 k=(k!=null?k:["",""])[1];
 console.log(k);
 if(k=="time"){
@@ -23,7 +23,7 @@ post("UTC Time "+t+", "+v+" minutes until UTC midnight",user);
 return;
 }
 if(k=="help"){
-post("Current commands: !cbrt_*x* !e !help !hoh_*n* !irreg_*n* !ln_*x* !log_*x* !phi !pi !pingme !sqrt_*x* !time\n*n* is an integer literal, *x* is an integer or float literal.\n\"e\", \"pi\", or \"phi\" (sans quotes) may be substituted for any float literal.",user);
+post("Current commands: !cbrt_*x* !dilbert_*date* !e !help !hoh_*n* !irreg_*n* !ln_*x* !log_*x* !phi !pi !pingme !sqrt_*x* !time\n*n* is an integer literal, *x* is an integer or float literal.\n\"e\", \"pi\", or \"phi\" (sans quotes) may be substituted for any float literal.\nDates should be given in the form YYYY-MM-DD",user);
 t=1700;
 return;
 }
@@ -77,6 +77,12 @@ post(char+" http://neorice.com/hoh_"+i,user);
 setTimeout(function(){postRaw(url)},900)
 t=2400;
 return;
+}
+if(k.indexOf("dilbert_")){
+var url="http://dilbert.com/strip/"+k.substring(8);
+post(url,user);
+setTimeout(_=>jQuery.get("https://crossorigin.me/"+url,a=>{postRaw((new RegExp('<img .*?src="(http://assets.amuniversal.com/[a-z0-9]+)".*?>')).exec(a.toString())[1]+".gif")},"html"),900);
+t=2400;
 }
 return;
 }
