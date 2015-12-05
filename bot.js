@@ -80,6 +80,7 @@ return;
 }
 if(k.indexOf("dilbert_")==0){
 var url="http://dilbert.com/strip/"+k.substring(8);
+console.log(url);
 post(url,user);
 setTimeout(_=>jQuery.get("https://crossorigin.me/"+url,a=>{postRaw((new RegExp('<img .*?src="(http://assets.amuniversal.com/[a-z0-9]+)".*?>')).exec(a.toString())[1]+".gif")},"html"),900);
 t=2400;
@@ -112,7 +113,7 @@ for(a of z){
  b=Math.max(c,b);
  if(b==c)k=a;
 }
-z=k.getElementsByClassName("content")[0]
+if(k)z=k.getElementsByClassName("content")[0]
 if(z){
 var user=getUser(z)||"";
 process(z.innerHTML,user);
