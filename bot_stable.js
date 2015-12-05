@@ -1,21 +1,40 @@
 (function(){
+function n(k){
+if(k=="pi")return Math.PI;
+if(k=="phi")return Math.PHI||(1+Math.sqrt(5))/2;
+if(k=="e")return Math.E;
+return Number(k);
+}
 var t;
 var bot_user="SJ-9000";
 function process(m,user){
 if(user==bot_user)return;
-if(m.indexOf("@")!=-1&&m.indexOf("@"+bot_user)==-1)return "";
-if(m.indexOf("!")==-1)return "";
-var k=/!([A-Za-z0-9_]+)/g.exec(m);
-k=(k||[""])[1];
+if(m.indexOf("@")!=-1&&m.indexOf("@"+bot_user)==-1)return;
+if(m.indexOf("!")==-1)return;
+var k=/!([A-Za-z0-9_.\-]+)/g.exec(m);
+k=(k!=null?k:["",""])[1]||"";
+console.log(k);
 if(k=="time"){
 t=(new Date()).valueOf();
 u=60*1000;
 v=24*60*u;
 v=Math.floor((v-t%v)/u);
 post("UTC Time "+t+", "+v+" minutes until UTC midnight",user);
+return;
+}
+if(k=="help"){
+post("Current commands: !cbrt_*x* !dilbert_*date* !e !help !hoh_*n* !irreg_*n* !ln_*x* !log_*x* !phi !pi !pingme !sqrt_*x* !time\n*n* is an integer literal, *x* is an integer or float literal.\n\"e\", \"pi\", or \"phi\" (sans quotes) may be substituted for any float literal.\nDates should be given in the form YYYY-MM-DD",user);
+t=1700;
+return;
 }
 if(k=="pi"){
 post(Math.PI,user);
+}
+if(k=="pingme"){
+post("",user);
+}
+if(k=="phi"){
+post(Math.PHI||(1+Math.sqrt(5))/2,user);
 }
 if(k=="e"){
 post(Math.E,user);
@@ -26,14 +45,20 @@ var j=("000"+i).slice(-4);
 var url="http://irregularwebcomic.net/comics/irreg"+j+".jpg";
 post("http://irregularwebcomic.net/"+k+".html",user);
 setTimeout(function(){postRaw(url)},900)
-t=1400;
+t=2400;
 return;
 }
 if(k.indexOf("sqrt_")==0){
-post(Math.sqrt(k.substring(5)),user);
+post(Math.sqrt(n(k.substring(5))),user);
 }
 if(k.indexOf("cbrt_")==0){
-post(Math.cbrt(k.substring(5)),user);
+post(Math.cbrt(n(k.substring(5))),user);
+}
+if(k.indexOf("ln_")==0){
+post(Math.log(n(k.substring(3))),user);
+}
+if(k.indexOf("log_")==0){
+post(Math.log10(n(k.substring(4))),user);
 }
 if(k.indexOf("hoh_")==0){
 var i=k.substring(4);
@@ -50,8 +75,15 @@ if(i<222)char="Burk";
 var url="http://neorice.com/hoh/"+i+"_"+(char=="Intermission"?"Burk_Noah_Tobi":char)+".png";
 post(char+" http://neorice.com/hoh_"+i,user);
 setTimeout(function(){postRaw(url)},900)
-t=1400;
+t=2400;
 return;
+}
+if(k.indexOf("dilbert_")==0){
+var url="http://dilbert.com/strip/"+k.substring(8);
+console.log(url);
+post(url,user);
+setTimeout(_=>jQuery.get("https://crossorigin.me/"+url,a=>{postRaw((new RegExp('<img .*?src="(http://assets.amuniversal.com/[a-z0-9]+)".*?>')).exec(a.toString())[1]+".gif")},"html"),900);
+t=2400;
 }
 return;
 }
@@ -67,11 +99,11 @@ function post(t,u){
 
 function postRaw(t){
  document.getElementById('input').value=t;document.getElementById('sayit-button').click()
- t=1200;
+ t=1600;
 }
 
 var f=function(){
-t=350;
+t=200;
 var a,b,c,k,t,u,v,z;
 b=0;
 k=null;
@@ -81,7 +113,7 @@ for(a of z){
  b=Math.max(c,b);
  if(b==c)k=a;
 }
-z=k.getElementsByClassName("content")[0]
+if(k)z=k.getElementsByClassName("content")[0]
 if(z){
 var user=getUser(z)||"";
 process(z.innerHTML,user);
