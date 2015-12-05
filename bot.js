@@ -78,7 +78,7 @@ setTimeout(function(){postRaw(url)},900)
 t=2400;
 return;
 }
-if(k.indexOf("dilbert_")){
+if(k.indexOf("dilbert_")==0){
 var url="http://dilbert.com/strip/"+k.substring(8);
 post(url,user);
 setTimeout(_=>jQuery.get("https://crossorigin.me/"+url,a=>{postRaw((new RegExp('<img .*?src="(http://assets.amuniversal.com/[a-z0-9]+)".*?>')).exec(a.toString())[1]+".gif")},"html"),900);
