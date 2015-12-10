@@ -24,7 +24,7 @@ return;
 }
 if(k=="help"){
 post("Current commands: !cbrt_*x* !dilbert_*date* !e !help !hoh_*n* !irreg_*n* !ln_*x* !log_*x* !phi !pi !pingme !sqrt_*x* !time\n*n* is an integer literal, *x* is an integer or float literal.\n\"e\", \"pi\", or \"phi\" (sans quotes) may be substituted for any float literal.\nDates should be given in the form YYYY-MM-DD",user);
-t=1700;
+t+=200;
 return;
 }
 if(k=="pi"){
@@ -44,8 +44,8 @@ var i=k.substring(6);
 var j=("000"+i).slice(-4);
 var url="http://irregularwebcomic.net/comics/irreg"+j+".jpg";
 post("http://irregularwebcomic.net/"+k+".html",user);
-setTimeout(function(){postRaw(url)},900)
-t=2400;
+setTimeout(function(){postRaw(url)},1000)
+t=4000;
 return;
 }
 if(k.indexOf("sqrt_")==0){
@@ -74,8 +74,8 @@ if(i<334)char="Noah";
 if(i<222)char="Burk";
 var url="http://neorice.com/hoh/"+i+"_"+(char=="Intermission"?"Burk_Noah_Tobi":char)+".png";
 post(char+" http://neorice.com/hoh_"+i,user);
-setTimeout(function(){postRaw(url)},900)
-t=2400;
+setTimeout(function(){postRaw(url)},1000)
+t=4000;
 return;
 }
 if(k.indexOf("dilbert_")==0){
@@ -83,7 +83,7 @@ var url="http://dilbert.com/strip/"+k.substring(8);
 console.log(url);
 post(url,user);
 setTimeout(_=>jQuery.get("https://crossorigin.me/"+url,a=>{postRaw((new RegExp('<img .*?src="(http://assets.amuniversal.com/[a-z0-9]+)".*?>')).exec(a.toString())[1]+".gif")},"html"),900);
-t=2400;
+t=4000;
 }
 return;
 }
@@ -99,7 +99,7 @@ function post(t,u){
 
 function postRaw(t){
  document.getElementById('input').value=t;document.getElementById('sayit-button').click()
- t=1600;
+ t=2000;
 }
 
 var f=function(){
