@@ -97,8 +97,13 @@ return;
 }
 
 function getUser(el){
-while(el.className.indexOf("monologue")<0)el=el.parentNode;
-return (el.getElementsByClassName("username")[0]||{}).innerHTML;
+while(true){
+if(!el)return "";
+if(!el.className)return "";
+if(el.className.indexOf("monologue")>=0)break;
+el=el.parentNode;
+}
+return (el.getElementsByClassName("username")[0]||{}).innerHTML||"";
 }
 
 function post(t,u){
