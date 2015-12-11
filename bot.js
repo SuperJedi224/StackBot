@@ -122,7 +122,7 @@ for(i=0;i<number;i++)v.push(roll(sides,explode));
 v.sort(function(a, b){return a-b});
 var q=0;
 for(i=0;i<keep;i++)q+=v.pop();
-return v;
+return q;
 }catch(e){console.log(e.toString());return "error"}
 }
 function roll(sides,exploding){
