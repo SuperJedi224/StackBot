@@ -124,7 +124,7 @@ v.sort(function(a, b){return a-b});
 var q=0;
 for(i=0;i<keep;i++)q+=v.pop();
 return v;
-}catch(e){return "error"}
+}catch(e){console.log(e.toString());return "error"}
 }
 function roll(sides,exploding){
 if(sides<2)return sides;
@@ -148,7 +148,7 @@ function post(t,u){
 
 function postRaw(t){
  document.getElementById('input').value=t;document.getElementById('sayit-button').click()
- t=2000;
+ t=2200;
 }
 
 var f=function(){
