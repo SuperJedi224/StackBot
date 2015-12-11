@@ -7,13 +7,18 @@ return Number(k);
 }
 var t;
 var bot_user="SJ-9000";
+var admin_user="SuperJedi224";
+
 function process(m,user){
 if(user==bot_user)return;
 if(m.indexOf("@")!=-1&&m.indexOf("@"+bot_user)==-1)return;
 if(m.indexOf("!")==-1)return;
-var k=/!([A-Za-z0-9_.\-]+)/g.exec(m);
+var k=/!([A-Za-z0-9_.\-]+)/.exec(m);
 k=(k!=null?k:["",""])[1]||"";
 console.log(k);
+if(k=="reboot"){
+if(user==admin_user){location.reload(true);}else{post("You don't have access to admin commands!",user);}
+}
 if(k=="time"){
 t=(new Date()).valueOf();
 u=60*1000;
