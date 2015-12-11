@@ -18,7 +18,7 @@ var k=/!([A-Za-z0-9_.\-]+)/.exec(m);
 k=(k!=null?k:["",""])[1]||"";
 console.log(k);
 if(k=="reboot"){
-if(user==admin_user){post("Rebooting...");setTimeout(_=>location.reload(true),50);}else{post("You don't have access to admin commands!",user);}
+if(user==admin_user){post("Rebooting...");setTimeout(_=>location.reload(true),100);}else{post("You don't have access to admin commands!",user);}
 }
 if(k=="time"){
 t=(new Date()).valueOf();
