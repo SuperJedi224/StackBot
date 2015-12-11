@@ -60,8 +60,8 @@ return;
 if(k.indexOf("darths_")==0){
 var i=k.substring(7);
 var j=("000"+i).slice(-4);
-var url="http://www.darthsanddroids.net/comics/darths"+j+".jpg";
-post("http://irregularwebcomic.net/episodes/"+j+".html",user);
+var url="http://darthsanddroids.net/comics/darths"+j+".jpg";
+post("http://www.darthsanddroids.net/episodes/"+j+".html",user);
 setTimeout(function(){postRaw(url)},1000)
 t=4000;
 return;
