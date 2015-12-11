@@ -18,7 +18,7 @@ var k=/!([A-Za-z0-9_.\-]+)/.exec(m);
 k=(k!=null?k:["",""])[1]||"";
 console.log(k);
 if(k=="reboot"){
-if(user==admin_user){location.reload(true);}else{post("You don't have access to admin commands!",user);}
+if(user==admin_user){post("Rebooting...");setTimeout(_=>location.reload(true),50);}else{post("You don't have access to admin commands!",user);}
 }
 if(k=="time"){
 t=(new Date()).valueOf();
@@ -132,5 +132,5 @@ if(z){
 var user=getUser(z)||"";
 process(z.innerHTML,user);
 }
-setTimeout(f,t)};
-setTimeout(_=>{post("Bot Loaded.");setTimeout(f,250);console.log("Bot Loaded.")},200);})()
+setTimeout(f,t)};setTimeout(f,250);
+setTimeout(_=>{post("Bot Loaded.");console.log("Bot Loaded.")},200);})()
