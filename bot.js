@@ -14,7 +14,7 @@ if(user==bot_user)return;
 if(!m)return;
 if(m.indexOf("@")!=-1&&m.indexOf("@"+bot_user)==-1)return;
 if(m.indexOf("!")==-1)return;
-var k=/!([A-Za-z0-9_.\-]+)/.exec(m);
+var k=/!([^ ]+)/.exec(m);
 k=(k!=null?k:["",""])[1]||"";
 console.log(k);
 if(k=="reboot"){
@@ -117,7 +117,7 @@ var i=dice.indexOf("d");
 sides=parseInt(/\d+/.exec(dice.substring(i))[0]);
 keep=number;
 i=dice.indexOf("k");
-if(i!=-1)keep=parseInt(dice.substring(i+1));
+if(i!=-1)keep=parseInt(/\d+/.exec(dice.substring(i))[0]);
 if(dice.indexOf("^")!=-1)explode=1;
 var v=[];
 for(i=0;i<number;i++)v.push(roll(sides,explode));
