@@ -115,7 +115,7 @@ number=parseInt(/\d+/.exec(dice)[0]);
 sides=parseInt(/\d+/.exec(dice.substring(i))[0]);
 var i=dice.indexOf("d");
 keep=number;
-if(i!=-1)keep=i.parseInt(dice.substring(i));
+if(i!=-1)keep=parseInt(dice.substring(i));
 if(dice.indexOf("^")!=-1)explode=1;
 var v=[];
 for(i=0;i<number;i++)v.push(roll(sides,explode));
