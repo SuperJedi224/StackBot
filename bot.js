@@ -110,12 +110,10 @@ t=4000;
 return;
 }
 function parseDice(dice){try{var sides=0,number=1,keep=0,explode=0;
-var i=dice.indexOf(/d/i);
-console.log(i);
-if(i==-1)return "error";
-if(i>0)number=parseInt(dice.substring(0,i));
+if(dice[0]=='d')dice="1"+dice;
+number=parseInt(/\d+/.exec(dice)[0]);
 sides=parseInt(/\d+/.exec(dice.substring(i))[0]);
-i=dice.indexOf(/k/i);
+var i=dice.indexOf("d");
 keep=number;
 if(i!=-1)keep=i.parseInt(dice.substring(i));
 if(dice.indexOf("^")!=-1)explode=1;
