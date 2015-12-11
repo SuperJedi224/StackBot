@@ -97,6 +97,9 @@ setTimeout(function(){postRaw(url)},1000)
 t=4000;
 return;
 }
+if(k.indexOf("roll_")==0){
+post(parseDice(k.substring(5)),user);
+}
 if(k.indexOf("dilbert_")==0){
 var url="http://dilbert.com/strip/"+k.substring(8);
 console.log(url);
@@ -106,7 +109,29 @@ t=4000;
 }
 return;
 }
-
+function parseDice(dice){try{var sides=0,number=1,keep=0,explode=0;
+var i=dice.indexOf(/d/i);
+if(i==-1)return "error";
+if(i>0)number=parseInt(dice.substring(0,i));
+sides=parseInt(/\d+/.exec(dice.substring(i))[0]);
+i=dice.indexOf(/k/i);
+keep=number;
+if(i!=-1)keep=i.parseInt(dice.substring(i));
+if(dice.indexOf("^")!=-1)explode=1;
+var v=[];
+for(i=0;i<number;i++)v.push(roll(sides,explode));
+v.sort(function(a, b){return a-b});
+var q=0;
+for(i=0;i<keep;i++)q+=v.pop();
+return v;
+}catch(e){return "error"}
+}
+function roll(sides,exploding){
+if(sides<2)return sides;
+var v=0,s=0;
+do{s=1+sides*Math.random();s=s|0;v+=s;}while(exploding&&s==sides);
+return v;
+}
 function getUser(el){
 while(true){
 if(!el)return "";
