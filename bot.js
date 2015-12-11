@@ -110,6 +110,7 @@ t=4000;
 return;
 }
 function parseDice(dice){try{var sides=0,number=1,keep=0,explode=0;
+console.log(dice);
 var i=dice.indexOf(/d/i);
 if(i==-1)return "error";
 if(i>0)number=parseInt(dice.substring(0,i));
