@@ -104,7 +104,6 @@ post(parseDice(k.substring(5)),user);
 }
 if(k.indexOf("dilbert_")==0){
 var url="http://dilbert.com/strip/"+k.substring(8);
-console.log(url);
 post(url,user);
 setTimeout(_=>jQuery.get("https://crossorigin.me/"+url,a=>{postRaw((new RegExp('<img .*?src="(http://assets.amuniversal.com/[a-z0-9]+)".*?>')).exec(a.toString())[1]+".gif")},"html"),900);
 t=4000;
@@ -169,4 +168,4 @@ process(z.innerHTML,user);
 }
 console.log(t);
 setTimeout(f,t)};setTimeout(f,400);
-setTimeout(_=>{post("Bot loaded. Post !\u200Bhelp for help.");console.log("Bot Loaded.")},200);})()
+setTimeout(_=>{post("\nBot loaded. Post !help for help.\n");console.log("Bot Loaded.")},200);})()
