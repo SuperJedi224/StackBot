@@ -10,7 +10,7 @@ var bot_user="SJ-9000";
 var admin_user="SuperJedi224";
 
 function process(m,user){
-user=user.replace(/\u8203/g,"").replace(\u8209/g,"-");
+user=user.replace(/\u8203/g,"").replace(/\u8209/g,"-");
 console.log(user);
 if(user==bot_user)return;
 if(!m)return;
