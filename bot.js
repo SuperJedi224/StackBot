@@ -12,6 +12,7 @@ var admin_user="SuperJedi224";
 function process(m,user){
 console.log(user);
 if(user==bot_user)return;
+if(user.length==0)return;
 if(!m)return;
 if(m.indexOf("@")!=-1&&m.indexOf("@"+bot_user)==-1)return;
 if(m.indexOf("!")==-1)return;
