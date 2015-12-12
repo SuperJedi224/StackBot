@@ -113,7 +113,6 @@ function parseDice(dice){try{var sides=0,number=1,keep=0,explode=0;
 if(dice[0]=='d')dice="1"+dice;
 console.log(dice);
 number=parseInt(/\d+/.exec(dice)[0]);
-if(number>100)return "error";
 var i=dice.indexOf("d");
 sides=parseInt(/\d+/.exec(dice.substring(i))[0]);
 keep=number;
@@ -126,7 +125,7 @@ v.sort(function(a, b){return a-b});
 var s="("+v.toString()+")";
 var q=0;
 for(i=0;i<keep;i++)q+=v.pop();
-return q+" "+s;
+return s.length>300?q:q+" "+s;
 }catch(e){console.log(e.toString());return "error"}
 }
 function roll(sides,exploding){
