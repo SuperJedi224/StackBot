@@ -113,6 +113,7 @@ function parseDice(dice){try{var sides=0,number=1,keep=0,explode=0;
 if(dice[0]=='d')dice="1"+dice;
 console.log(dice);
 number=parseInt(/\d+/.exec(dice)[0]);
+if(number>100)return "error";
 var i=dice.indexOf("d");
 sides=parseInt(/\d+/.exec(dice.substring(i))[0]);
 keep=number;
