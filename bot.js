@@ -172,5 +172,5 @@ if(z){
 var user=getUser(z)||"";
 process(z.innerHTML,user);
 }
-setTimeout(f,t)};setTimeout(f,250);
+setTimeout(f,t)};setTimeout(f,400);
 setTimeout(_=>{post("Bot Loaded. Post !help for help.");console.log("Bot Loaded.")},200);})()
