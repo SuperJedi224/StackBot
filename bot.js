@@ -10,7 +10,7 @@ var bot_user="SJ-9000";
 var admin_user="SuperJedi224";
 
 function process(m,user){
-user=user.replace(/\u8203/g,"").replace(/\u8209/g,"-");
+user=user.replace(/\u2000B/g,"").replace(/\u2011/g,"-");
 console.log(user);
 if(user==bot_user)return;
 if(!m)return;
@@ -169,4 +169,4 @@ process(z.innerHTML,user);
 }
 console.log(t);
 setTimeout(f,t)};setTimeout(f,400);
-setTimeout(_=>{post("Bot loaded! Post !\u8203help for help.");console.log("Bot Loaded.")},200);})()
+setTimeout(_=>{post("Bot loaded! Post !help for help.");console.log("Bot Loaded.")},200);})()
