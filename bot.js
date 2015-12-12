@@ -10,6 +10,7 @@ var bot_user="SJ-9000";
 var admin_user="SuperJedi224";
 
 function process(m,user){
+console.log(user);
 if(user==bot_user)return;
 if(!m)return;
 if(m.indexOf("@")!=-1&&m.indexOf("@"+bot_user)==-1)return;
