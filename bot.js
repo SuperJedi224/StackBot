@@ -5,7 +5,7 @@ if(k=="phi")return Math.PHI||(1+Math.sqrt(5))/2;
 if(k=="e")return Math.E;
 return Number(k);
 }
-var t;
+var t=100;
 var bot_user="SJ-9000";
 var admin_user="SuperJedi224";
 
@@ -167,5 +167,6 @@ if(z){
 var user=getUser(z)||"";
 process(z.innerHTML,user);
 }
+console.log(t);
 setTimeout(f,t)};setTimeout(f,400);
-setTimeout(_=>{post("Bot Loaded. Post !help for help.");console.log("Bot Loaded.")},200);})()
+setTimeout(_=>{post("Bot loaded, but may not be functional at present :(");console.log("Bot Loaded.")},200);})()
