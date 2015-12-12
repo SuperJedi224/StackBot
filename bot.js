@@ -13,6 +13,7 @@ function process(m,user){
 user=user.replace(/\u2000B/g,"").replace(/\u2011/g,"-");
 console.log(user);
 if(user==bot_user)return;
+if(bool){bool=false;return}
 if(!m)return;
 if(m.indexOf("@")!=-1&&m.indexOf("@"+bot_user)==-1)return;
 if(m.indexOf("!")==-1)return;
@@ -168,4 +169,4 @@ process(z.innerHTML,user);
 }
 console.log(t);
 setTimeout(f,t)};setTimeout(f,400);
-setTimeout(_=>{post("\nBot loaded. Post !help for help.\n");console.log("Bot Loaded.")},200);})()
+setTimeout(_=>{bool=true;post("Bot loaded. Post !help for help.");console.log("Bot Loaded.")},200);})()
