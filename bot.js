@@ -158,9 +158,10 @@ function postRaw(t){
 
 var f=function(){
 t=200;
-var a,b,c,k,t,u,v,z;
+var b,c,k,u,v,z;
 b=0;
 k=document.querySelector(".monologue:last-of-type .message:last-of-type");
+console.log(k);
 if(k)z=k.getElementsByClassName("content")[0];
 if(z){
 var user=getUser(z)||"";
