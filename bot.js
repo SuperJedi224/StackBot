@@ -13,7 +13,6 @@ function process(m,user){
 user=user.replace(/\u8203/g,"").replace(\u8209/g,"-");
 console.log(user);
 if(user==bot_user)return;
-if(user.length==0)return;
 if(!m)return;
 if(m.indexOf("@")!=-1&&m.indexOf("@"+bot_user)==-1)return;
 if(m.indexOf("!")==-1)return;
