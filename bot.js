@@ -167,7 +167,8 @@ for(a of z){
  b=Math.max(c,b);
  if(b==c)k=a;
 }
-if(k)z=k.getElementsByClassName("content")[0]
+if(k)z=k.getElementsByClassName("content")[0];
+console.log(z);
 if(z){
 var user=getUser(z)||"";
 process(z.innerHTML,user);
