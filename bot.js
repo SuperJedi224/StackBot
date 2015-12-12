@@ -160,15 +160,8 @@ var f=function(){
 t=200;
 var a,b,c,k,t,u,v,z;
 b=0;
-k=null;
-z=Array.prototype.slice.call(document.getElementsByClassName('message'),0);
-for(a of z){
- c=parseInt(a.id.split("-")[1]);
- b=Math.max(c,b);
- if(b==c)k=a;
-}
+k=document.querySelector(".monologue:last-of-type .message:last-of-type");
 if(k)z=k.getElementsByClassName("content")[0];
-console.log(z);
 if(z){
 var user=getUser(z)||"";
 process(z.innerHTML,user);
