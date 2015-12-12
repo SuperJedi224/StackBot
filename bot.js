@@ -169,4 +169,4 @@ process(z.innerHTML,user);
 }
 console.log(t);
 setTimeout(f,t)};setTimeout(f,400);
-setTimeout(_=>{bool=true;post("Bot loaded. Post !help for help.");console.log("Bot Loaded.")},200);})()
+setTimeout(_=>{bool=true;post("Bot loaded.");console.log("Bot Loaded.")},200);})()
