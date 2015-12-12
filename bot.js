@@ -171,4 +171,4 @@ var user=getUser(z)||"";
 process(z.innerHTML,user);
 }
 setTimeout(f,t)};setTimeout(f,250);
-setTimeout(_=>{post("Bot Loaded.");console.log("Bot Loaded.")},200);})()
+setTimeout(_=>{post("Bot Loaded.");console.log("Bot Loaded. Post !help for help.")},200);})()
