@@ -64,8 +64,8 @@ post("",user);
 jQuery.get("http://crossorigin.me/https://www.youtube.com/playlist?list="+j,a=>{
 var q=a.toString().match(/<a.+?href="\/watch.+?"/g);
 q=q[q.length*Math.random()];
-q=/href="(.+?)&.+?"/.exec(q)[1];
-setTimeout(_=>postRaw("http://youtube.com"+q),500);
+q=/href="(.+?)&.+?"/.exec(q);
+setTimeout(_=>postRaw(q?"http://youtube.com"+q[1]:"error"),500);
 })
 t=4200;
 }
