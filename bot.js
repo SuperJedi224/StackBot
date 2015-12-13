@@ -137,18 +137,21 @@ return s.length>300?q:q+" "+s;
 }catch(e){console.log(e.toString());return "error"}
 }
 var conversions=[
-{m:1,cm:0.01,mm:0.001,ft:0.3048,yd:0.9144,km:1000,mi:1609,um:1e-6,micron:1e-6,nm:1e-9},
+{m:1,cm:0.01,in:0.0254,mm:0.001,ft:0.3048,yd:0.9144,km:1000,mi:1609,um:1e-6,micron:1e-6,nm:1e-9},
 {s:1,ms:0.001,us:1e-6,ns:1e-9,min:60,hr:3600,d:86400,yr:31556926},
 {ug:1e-9,mg:1e-6,g:0.001,kg:1,lb:0.4539,ton:907.185,tonne:1000,ktonne:1e6},
-{W:1,hp:745.7},
-{N:1,dyne:1e-5},
-{J:1,erg:1e-7}
+{w:1,hp:745.7},
+{n:1,dyne:1e-5},
+{j:1,erg:1e-7},
+{l:1,ml:0.001,ul:1e-6,gal:3.78,oz,oz:0.0296,c:0.2366,pt:0.4732,qt:0.94635}
 ];
 function convert(x,f,t){
 console.log(f+" "+t);
 if(!f)return x+" is dimensionless.";
 if(!t)return "error: must specify target unit.";
-for(var ent of conversions)if(ent[f]&&ent[t])return x*ent[f]/ent[t];
+f=f.toLowerCase();
+t=t.toLowerCase();
+for(var ent of conversions)if(ent[f]&&ent[t])return x+f+"="+(x*ent[f]/ent[t])+"t";
 return "error: conversion failed.";
 }
 function roll(sides,exploding){
