@@ -143,7 +143,7 @@ var conversions=[
 {w:1,hp:745.7},
 {n:1,dyne:1e-5},
 {j:1,erg:1e-7},
-{l:1,ml:0.001,ul:1e-6,gal:3.78,oz,oz:0.0296,c:0.2366,pt:0.4732,qt:0.94635}
+{l:1,ml:0.001,ul:1e-6,gal:3.78,oz:0.0296,c:0.2366,pt:0.4732,qt:0.94635}
 ];
 function convert(x,f,t){
 console.log(f+" "+t);
