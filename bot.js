@@ -157,7 +157,7 @@ return "error: conversion failed.";
 function roll(sides,exploding){
 if(sides<2)return sides;
 var v=0,s=0;
-do{s=1+sides*Math.random();s=s|0;v+=s;}while(exploding&&s==sides);
+do{s=1+sides*Math.random();s|=0;v+=s;}while(exploding&&s==sides);
 return v;
 }
 function getUser(el){
