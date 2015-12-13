@@ -140,17 +140,15 @@ var conversions=[
 {m:1,cm:0.01,in:0.0254,mm:0.001,ft:0.3048,yd:0.9144,km:1000,mi:1609,um:1e-6,micron:1e-6,nm:1e-9},
 {s:1,ms:0.001,us:1e-6,ns:1e-9,min:60,hr:3600,d:86400,yr:31556926},
 {ug:1e-9,mg:1e-6,g:0.001,kg:1,lb:0.4539,ton:907.185,tonne:1000,ktonne:1e6},
-{w:1,hp:745.7},
-{n:1,dyne:1e-5},
-{j:1,erg:1e-7},
-{l:1,ml:0.001,ul:1e-6,gal:3.78,oz:0.0296,c:0.2366,pt:0.4732,qt:0.94635}
+{W:1,hp:745.7,kW:1000},
+{M:1,dyne:1e-5,lb:4.4482,lbf:4.4482,mn:0.001,eV:1.602e-19},
+{J:1,erg:1e-7,kJ:1000,MJ:1e6,mJ:1e-3},
+{L:1,l:1,mL:0.001,ml:0.001,ul:1e-6,gal:3.78,oz:0.0296,c:0.2366,pt:0.4732,qt:0.94635}
 ];
 function convert(x,f,t){
 console.log(f+" "+t);
 if(!f)return x+" is dimensionless.";
 if(!t)return "error: must specify target unit.";
-f=f.toLowerCase();
-t=t.toLowerCase();
 for(var ent of conversions)if(ent[f]&&ent[t])return x+f+"="+(x*ent[f]/ent[t])+t;
 return "error: conversion failed.";
 }
