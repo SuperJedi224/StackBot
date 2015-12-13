@@ -107,7 +107,7 @@ var s=k.substring(7);
 var amt=parseInt(/\d+/.exec(s)[0]);
 var unit=(/\D+/.exec(s)||[""])[0];
 var to=(/to:([a-z]+)/.exec(m)||[])[1];
-post(convert(amt,unit,to));
+post(convert(amt,unit,to),user);
 }
 if(k.indexOf("dilbert_")==0){
 var url="http://dilbert.com/strip/"+k.substring(8);
