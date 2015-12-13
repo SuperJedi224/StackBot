@@ -105,7 +105,7 @@ if(k.indexOf("convert_")==0){
 var s=k.substring(8);
 var amt=parseInt(/\d+/.exec(s)[0]);
 var unit=(/\D+/.exec(s)||[""])[0];
-var to=(/to:([A-z]+)/.exec(m)||[])[1];
+var to=(/to:([a-zA-Z]+)/.exec(m)||[])[1];
 post(convert(amt,unit,to),user);
 }
 if(k.indexOf("dilbert_")==0){
