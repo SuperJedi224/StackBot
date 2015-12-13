@@ -146,6 +146,7 @@ var conversions=[
 {J:1,erg:1e-7}
 ];
 function convert(x,f,t){
+console.log(f+" "+t);
 if(!f)return x+" is dimensionless.";
 if(!t)return "error: must specify target unit.";
 for(var ent of conversions)if(ent[f]&&ent[t])return x*ent[f]/ent[t];
