@@ -13,7 +13,6 @@ function process(m,user){
 user=user.replace(/\u2000B/g,"").replace(/\u2011/g,"-");
 console.log(user);
 if(user==bot_user)return;
-if(bool){bool=false;return}
 if(!m)return;
 if(m.indexOf("@")!=-1&&m.indexOf("@"+bot_user)==-1)return;
 if(m.indexOf("!")==-1)return;
@@ -103,6 +102,13 @@ return;
 if(k.indexOf("roll_")==0){
 post(parseDice(k.substring(5)),user);
 }
+if(k.indexOf("convert_")==0){
+var s=k.substring(7);
+var amt=parseInt(/\d+/.exec(s)[0]);
+var unit=(/\D+/.exec(s)||[""])[0];
+var to=(/to:([a-z]+)/.exec(m)||[])[1];
+post(convert(amt,unit,to));
+}
 if(k.indexOf("dilbert_")==0){
 var url="http://dilbert.com/strip/"+k.substring(8);
 post(url,user);
@@ -130,6 +136,20 @@ var q=0;
 for(i=0;i<keep;i++)q+=v.pop();
 return s.length>300?q:q+" "+s;
 }catch(e){console.log(e.toString());return "error"}
+}
+var conversions=[
+{m:1,cm:0.01,mm:0.001,ft:0.3048,yd:0.9144,km:1000,mi:1609,um:1e-6,micron:1e-6,nm:1e-9},
+{s:1,ms:0.001,us:1e-6,ns:1e-9,min:60,hr:3600,d:86400,yr:31556926},
+{ug:1e-9,mg:1e-6,g:0.001,kg:1,lb:0.4539,ton:907.185,tonne:1000,ktonne:1e6},
+{W:1,hp:745.7},
+{N:1,dyne:1e-5},
+{J:1,erg:1e-7}
+];
+function convert(x,f,t){
+if(!f)return x+" is dimensionless.";
+if(!t)return "error: must specify target unit.";
+for(var ent of conversions)if(ent[f]&&ent[t])return x*ent[f]/ent[t];
+return "error: conversion failed.";
 }
 function roll(sides,exploding){
 if(sides<2)return sides;
