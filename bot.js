@@ -11,7 +11,6 @@ var admin_user="SuperJedi224";
 
 function process(m,user){
 user=user.replace(/\u2000B/g,"").replace(/\u2011/g,"-");
-console.log(user);
 if(user==bot_user)return;
 if(!m)return;
 if(m.indexOf("@")!=-1&&m.indexOf("@"+bot_user)==-1)return;
@@ -182,7 +181,6 @@ t=200;
 var b,c,k,u,v,z;
 b=0;
 k=document.querySelector(".monologue:last-of-type .message:last-of-type");
-console.log(k);
 if(k)z=k.getElementsByClassName("content")[0];
 if(z){
 var user=getUser(z)||"";
