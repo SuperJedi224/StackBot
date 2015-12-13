@@ -102,7 +102,7 @@ if(k.indexOf("roll_")==0){
 post(parseDice(k.substring(5)),user);
 }
 if(k.indexOf("convert_")==0){
-var s=k.substring(7);
+var s=k.substring(8);
 var amt=parseInt(/\d+/.exec(s)[0]);
 var unit=(/\D+/.exec(s)||[""])[0];
 var to=(/to:([a-z]+)/.exec(m)||[])[1];
