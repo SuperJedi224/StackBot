@@ -58,6 +58,17 @@ setTimeout(function(){postRaw(url)},1000)
 t=4000;
 return;
 }
+if(k.indexOf("ytp_")==0){
+var j=k.substring(4);
+post("",user);
+jQuery.get("http://crossorigin.me/https://www.youtube.com/playlist?list="+j,a=>{
+var q=a.toString().match(/<a.+?href="\/watch.+?"/g);
+q=q[q.length*Math.random()];
+q=/href="(.+?)&.+?"/.exec(q)[1];
+setTimeout(_=>postRaw("http://youtube.com"+q),500);
+})
+t=4200;
+}
 if(k.indexOf("darths_")==0){
 var i=k.substring(7);
 var j=("000"+i).slice(-4);
