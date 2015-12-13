@@ -151,7 +151,7 @@ if(!f)return x+" is dimensionless.";
 if(!t)return "error: must specify target unit.";
 f=f.toLowerCase();
 t=t.toLowerCase();
-for(var ent of conversions)if(ent[f]&&ent[t])return x+f+"="+(x*ent[f]/ent[t])+"t";
+for(var ent of conversions)if(ent[f]&&ent[t])return x+f+"="+(x*ent[f]/ent[t])+t;
 return "error: conversion failed.";
 }
 function roll(sides,exploding){
