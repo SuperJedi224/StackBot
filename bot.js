@@ -66,7 +66,7 @@ var q=a.toString().match(/<a.+?href="\/watch.+?"/g);
 q=q[q.length*Math.random()|0];
 console.log(q);
 q=/href="(.+?)("|&)/.exec(q);
-setTimeout(_=>postRaw(q?"http://youtube.com"+q[1]:"error"),500);
+setTimeout(_=>postRaw(q?"http://youtube.com"+q[1]:"error"),900);
 })
 t=4200;
 }
