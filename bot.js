@@ -30,7 +30,7 @@ post("UTC Time "+t+", "+v+" minutes until UTC midnight",user);
 return;
 }
 if(k=="help"){
-post("Current commands: !cbrt_*x* !darths_*n* !dilbert_*date* !e !help !hi !hoh_*n* !irreg_*n* !ln_*x* !log_*x* !phi !pi !pingme !roll_*dice* !sqrt_*x* !time\n*n* is an integer literal, *x* is an integer or float literal.\n\"e\", \"pi\", or \"phi\" (sans quotes) may be substituted for any float literal.\nDates should be given in the form YYYY-MM-DD, dice in algebraic dice notation",user);
+post("Current commands: !cbrt_*x* !darths_*n* !dilbert_*date* !e !help !hi !hoh_*n* !irreg_*n* !ln_*x* !log_*x* !phi !pi !pingme !roll_*dice* !sqrt_*x* !time\n*n* is an integer literal, *x* is an integer or float literal.\n\"e\", \"pi\", or \"phi\" (sans quotes) may be substituted for any float literal.\nDates should be given in the form YYYY-MM-DD, dice in algebraic dice notation\nFor unit conversion, type !convert_*quantity* to:*unit*",user);
 t+=200;
 return;
 }
