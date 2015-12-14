@@ -149,14 +149,14 @@ return s.length>300?q:q+" "+s;
 }catch(e){console.log(e.toString());return "error"}
 }
 var conversions=[
-{m:1,cm:0.01,in:0.0254,mm:0.001,ft:0.3048,yd:0.9144,km:1000,mi:1609,um:1e-6,micron:1e-6,nm:1e-9,pm:1e-12,au:1.49578e11,Tm:1e12,pt:0.0003527,rod:5.0292,chain:20.1168,furlong:201.168,fathom:1.8288,angstrom:1e-10,pc:3.085678e16},
+{m:1,cm:0.01,in:0.0254,mm:0.001,ft:0.3048,yd:0.9144,km:1000,mi:1609,um:1e-6,micron:1e-6,nm:1e-9,pm:1e-12,fm:1e-15,au:1.49578e11,Tm:1e12,pt:0.0003527,rod:5.0292,chain:20.1168,furlong:201.168,fathom:1.8288,angstrom:1e-10,pc:3.085678e16,kpc:3.085678e19,Mpc:3.085678e22,Gpc:3.08567e25,Tpc:3.08567e28},
 {s:1,ms:0.001,us:1e-6,ns:1e-9,min:60,hr:3600,d:86400,yr:31556926},
 {ug:1e-9,mg:1e-6,g:0.001,ug:1e-9,mcg:1e-9,ng:1e-12,kg:1,lb:0.4539,ton:907.185,tonne:1000,ktonne:1e6,amu:1.6605e-24},
 {W:1,hp:745.6999,kW:1000,MW:1e6,GW:1e9,TW:1e12,mW:1e-3},
 {N:1,dyne:1e-5,lb:4.4482,lbf:4.4482,mN:0.001,kN:1000},
 {J:1,erg:1e-7,kJ:1000,MJ:1e6,mJ:1e-3,GJ:1e9,TJ:1e12,foe:1e44,eV:1.602e-19,keV:1.602e-16,meV:1.602e-22,MeV:1.602e-13,GeV:1.602e-10,TeV:1.602e-7},
 {L:1,l:1,mL:0.001,ml:0.001,cc:0.001,ul:1e-6,gal:3.78,oz:0.0296,c:0.2366,pt:0.4732,qt:0.94635},
-{sqm:1,sqft:0.0929,square:9.2903,sqcm:1e-4,sqyd:0.8362,acre:4046.86,a:100,ha:1e4,sqkm:1e6,sqmi:2589988,sqmm:1e-6,nacre:4.046e-6,barn:1e-38}
+{sqm:1,sqft:0.0929,square:9.2903,sqcm:1e-4,sqyd:0.8362,acre:4046.86,a:100,ha:1e4,sqkm:1e6,sqmi:2589988,sqmm:1e-6,nacre:4.046e-6,barn:1e-28,mbarn:1e-31,ubarn:1e-34,nbarn:1e-37,pbarn:1e-40,fbarn:1e-43}
 ];
 function convert(x,f,t){
 console.log(f+" "+t);
