@@ -128,8 +128,18 @@ t=4000;
 }
 return;
 }
-function parseDice(dice){try{var sides=0,number=1,keep=0,explode=0;
+function parseDice(dice){try{var sides=0,number=1,keep=0,explode=0,mod=0;
 if(dice[0]=='d')dice="1"+dice;
+if(dice.indexOf("+")!=-1){
+var arr=dice.split("+");
+mod=+d[1];
+dice=d[0];
+}
+if(dice.indexOf("-")!=-1){
+var arr=dice.split("-");
+mod=-d[1];
+dice=d[0];
+}
 console.log(dice);
 number=parseInt(/\d+/.exec(dice)[0]);
 var i=dice.indexOf("d");
@@ -145,6 +155,7 @@ v.sort(function(a, b){return a-b});
 var s="("+v.toString()+")";
 var q=0;
 for(i=0;i<keep;i++)q+=v.pop();
+q+=mod;
 return s.length>300?q:q+" "+s;
 }catch(e){console.log(e.toString());return "error"}
 }
