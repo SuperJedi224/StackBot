@@ -132,13 +132,13 @@ function parseDice(dice){try{var sides=0,number=1,keep=0,explode=0,mod=0;
 if(dice[0]=='d')dice="1"+dice;
 if(dice.indexOf("+")!=-1){
 var arr=dice.split("+");
-mod=+d[1];
-dice=d[0];
+mod=+arr[1];
+dice=arr[0];
 }
 if(dice.indexOf("-")!=-1){
 var arr=dice.split("-");
-mod=-d[1];
-dice=d[0];
+mod=-arr[1];
+dice=arr[0];
 }
 console.log(dice);
 number=parseInt(/\d+/.exec(dice)[0]);
