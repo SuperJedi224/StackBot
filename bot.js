@@ -93,7 +93,8 @@ post(Math.log10(n(k.substring(4))),user);
 }
 if(k.indexOf("hoh_")==0){
 var i=k.substring(4);
-var char="Burk";
+var char="Noah";
+if(i<527)char"Burk";
 if(i<505)char="Tobi";
 if(i<491)char="Noah";
 if(i<472)char="Burk";
