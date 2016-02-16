@@ -17,7 +17,7 @@ if(m.indexOf("@")!=-1&&m.indexOf("@"+bot_user)==-1)return;
 if(m.indexOf("!")==-1)return;
 var k=/!([^ ]+)/.exec(m);
 k=(k!=null?k:["",""])[1]||"";
-console.log(k);
+//console.log(k);
 if(k=="reboot"){
 if(user==admin_user){post("Rebooting...");setTimeout(_=>location.reload(true),100);}else{post("You don't have access to admin commands!",user);}
 }
@@ -93,7 +93,8 @@ post(Math.log10(n(k.substring(4))),user);
 }
 if(k.indexOf("hoh_")==0){
 var i=k.substring(4);
-var char="Noah";
+var char="Tobi";
+if(i<550)char="Noah";
 if(i<527)char="Burk";
 if(i<505)char="Tobi";
 if(i<491)char="Noah";
